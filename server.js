@@ -10,10 +10,10 @@ app.use(express.json());
 
 // var databaseToUse = ""
 
-// if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
 	app.use(express.static('client/build'));
 // 	databaseToUse = "mongodb://gabe:a123456@ds133601.mlab.com:33601/heroku_nf0ztkqg";
-// }
+}
 // else {
 // 	databaseToUse = 'mongodb://localhost/reactBoilerplate';
 // 	console.log("DEVELOPMENT")
@@ -22,12 +22,12 @@ app.use(express.json());
 
 app.use(routes);
 
-const MONGODB_URI = 'mongodb://localhost/reactBoilerplate';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://gabe:a123456@ds133231.mlab.com:33231/heroku_5vfx1n8w';
 
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(MONGODB_URI,{ useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 app.listen(PORT, function() {
 	console.log(`App running on port ${PORT}`);
