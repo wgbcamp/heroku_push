@@ -2,19 +2,8 @@ const mongoose = require('mongoose');
 const db = require('../models');
 mongoose.Promise = global.Promise;
 
-
-var databaseToUse = ""
-
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static('client/build'));
-	databaseToUse = "mongodb://gabe:a123456@ds133231.mlab.com:33231/heroku_5vfx1n8w";
-}
-else {
-	databaseToUse = 'mongodb://localhost/reactBoilerplate';
-}
-
 // This file empties the Sweets collection and inserts the Sweets below
-mongoose.connect(process.env.MONGODB_URI || databaseToUse);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reactBoilerplate');
 
 const itemSeed = [
 	{
