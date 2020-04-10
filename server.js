@@ -12,7 +12,7 @@ var databaseToUse = ""
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static('client/build'));
-	databaseToUse = "mongodb://gabe:a123456@ds133231.mlab.com:33231/heroku_5vfx1n8w";
+	databaseToUse = "mongodb://gabe:password1@ds129010.mlab.com:29010/heroku_x24s95zn";
 }
 else {
 	databaseToUse = 'mongodb://localhost/reactBoilerplate';
